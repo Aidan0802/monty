@@ -52,18 +52,15 @@ void swap_opcode(unsigned int line_n)
 
 void add_opcode(unsigned int line_n)
 {
-	int count = 0, sum = 0;
+	int sum = 0;
 
 	if (!stack || !stack->next)
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_n);
 		exit(EXIT_FAILURE);
 	}
-	while (count < 2)
-	{
-		sum += stack->n;
-		stack = stack->next;
-		count++;
-	}
-	printf("%d\n", sum);
+
+	sum = stack->n + stack->next->n;
+	stack = stack->next;
+	stack->n = sum;
 }
