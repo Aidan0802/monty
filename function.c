@@ -76,3 +76,19 @@ void push(stack_t **stack, int value)
 		(*stack)->prev = new_node;
 	*stack = new_node;
 }
+
+/**
+ * pint_opcode - Prints value at top of the stack
+ * @line_number: line_number
+ * Return: void
+ */
+
+void pint_opcode(unsigned int line_number)
+{
+	if (!stack)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	printf("%i\n", stack->n);
+}

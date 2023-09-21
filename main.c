@@ -8,9 +8,7 @@
 int main(int argc, char *argv[])
 {
 	FILE *file;
-	instruction_t options[] = {
-		{"push", push_opcode}, {"pall", pall_opcode}};
-	unsigned int line_number = 0, i, found = 0;
+	unsigned int line_number = 0, found = 0;
 	char line[MAX_LINE], *opcode, *arg;
 
 	if (argc != 2)
@@ -26,15 +24,7 @@ int main(int argc, char *argv[])
 		if (!opcode)
 			continue;
 		arg = strtok(NULL, " \n");
-		for (i = 0; i < sizeof(options) / sizeof(options[0]); i++)
-		{
-			if (strcmp(opcode, options[i].opcode) == 0)
-			{
-				options[i].f(&stack, line_number, arg);
-				found = 1;
-				break;
-			}
-		}
+		found = instructions(line_number, arg, opcode);
 		if (!found)
 		{
 			if (stack)
