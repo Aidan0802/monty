@@ -38,6 +38,6 @@ int instructions(unsigned int line_number, char *arg, char *opcode)
  * Return: void
  */
 
-void nop_opcode()
+void nop_opcode(void)
 {
 }

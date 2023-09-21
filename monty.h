@@ -50,6 +50,6 @@ int instructions(unsigned int line_number, char *arg, char *opcode);
 void pint_opcode(unsigned int line_number);
 void pop_opcode(unsigned int line_number);
 void swap_opcode(unsigned int line_n);
-void nop_opcode();
+void nop_opcode(void);
 
 #endif
