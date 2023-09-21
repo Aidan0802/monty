@@ -45,5 +45,6 @@ void push_opcode(stack_t **head, unsigned int line_number, const char *arg);
 void pall_opcode(stack_t **stack);
 void push(stack_t **stack, int value);
 FILE *open_file(char **arg);
+void free_stack(stack_t *stack);
 
 #endif

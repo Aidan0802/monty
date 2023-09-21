@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		printf("usage: push integer\n");
+		fprintf(stderr, "Usage: %s <monty_script>\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
 	if (argv[1] == NULL)
@@ -40,6 +40,6 @@ int main(int argc, char *argv[])
 			}
 		}
 	}
-	fclose(file);
+	fclose(file), free_stack(stack);
 	return (0);
 }
