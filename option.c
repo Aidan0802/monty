@@ -4,6 +4,7 @@
  * instructions - List of instruction options
  * @line_number: Line number
  * @arg: Argument
+ * @opcode: Function to select
  * Return: 0 (found) 1 (not found)
  */
 
@@ -13,7 +14,7 @@ int instructions(unsigned int line_number, char *arg, char *opcode)
 
 	instruction_t options[] = {
 		{"push", push_opcode}, {"pall", pall_opcode}, {"pint", pint_opcode},
-		{"pop", pop_opcode}
+		{"pop", pop_opcode}, {"swap", swap_opcode}
 	};
 
 	for (i = 0; i < sizeof(options) / sizeof(options[0]); i++)
