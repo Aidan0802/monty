@@ -36,7 +36,6 @@ void push_opcode(stack_t **head, unsigned int line_number, const char *arg)
 /**
  * pall_opcode - Prints the stack
  * @stack: The address of the stack
- * @line_number: Line argument number
  * Return: void
  */
 
@@ -53,7 +52,7 @@ void pall_opcode(stack_t **stack)
 
 /**
  * push - Push integer to stack
- * @stack - Address of stack
+ * @stack: Address of stack
  * @value: Value to be push on to stack
  * Return: void
  */
@@ -67,7 +66,7 @@ void push(stack_t **stack, int value)
 		fprintf(stderr, "Error: Unable to allocate memory for a new node\n");
 		exit(EXIT_FAILURE);
 	}
-	
+
 	new_node->n = value;
 	new_node->prev = NULL;
 	new_node->next = *stack;

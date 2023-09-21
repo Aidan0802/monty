@@ -1,12 +1,10 @@
 #include "monty.h"
-
 /**
  * main - Starting fucntion.
  * @argv: Argument vector
  * @argc: Argument count
  * Return: 0 (Success) EXIT_FAILURE (Fail)
  */
-
 int main(int argc, char *argv[])
 {
 	FILE *file;
@@ -25,12 +23,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Usage: %s <monty_script>\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
-	file = fopen(argv[1], "r");
-	if (file == NULL)
-	{
-		fprintf(stderr, "Error: Could not open file '%s'\n", argv[1]);
-        	exit(EXIT_FAILURE);
-	}
+	file = open_file(argv);
 	while (fgets(line, sizeof(line), file))
 	{
 		line_number++;
