@@ -14,7 +14,7 @@ int instructions(unsigned int line_number, char *arg, char *opcode)
 
 	instruction_t options[] = {
 		{"push", push_opcode}, {"pall", pall_opcode}, {"pint", pint_opcode},
-		{"pop", pop_opcode}, {"swap", swap_opcode}
+		{"pop", pop_opcode}, {"swap", swap_opcode}, {"nop", nop_opcode}
 	};
 
 	for (i = 0; i < sizeof(options) / sizeof(options[0]); i++)
@@ -31,4 +31,13 @@ int instructions(unsigned int line_number, char *arg, char *opcode)
 		return (1);
 	else
 		return (0);
+}
+
+/**
+ * nop_opcode - Does nothing
+ * Return: void
+ */
+
+void nop_opcode()
+{
 }

@@ -43,4 +43,3 @@ void swap_opcode(unsigned int line_n)
 	stack->n = stack->next->n;
 	stack->next->n = temp;
 }
-
