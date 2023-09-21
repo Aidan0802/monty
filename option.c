@@ -12,7 +12,8 @@ int instructions(unsigned int line_number, char *arg, char *opcode)
 	unsigned int found = 0, i;
 
 	instruction_t options[] = {
-		{"push", push_opcode}, {"pall", pall_opcode}, {"pint", pint_opcode}
+		{"push", push_opcode}, {"pall", pall_opcode}, {"pint", pint_opcode},
+		{"pop", pop_opcode}
 	};
 
 	for (i = 0; i < sizeof(options) / sizeof(options[0]); i++)
