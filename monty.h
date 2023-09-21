@@ -51,5 +51,6 @@ void pint_opcode(unsigned int line_number);
 void pop_opcode(unsigned int line_number);
 void swap_opcode(unsigned int line_n);
 void nop_opcode(void);
+void add_opcode(unsigned int line_n);
 
 #endif
