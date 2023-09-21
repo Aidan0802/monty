@@ -61,6 +61,7 @@ void add_opcode(unsigned int line_n)
 	}
 
 	sum = stack->n + stack->next->n;
+	free(stack);
 	stack = stack->next;
 	stack->n = sum;
 }
