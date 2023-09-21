@@ -46,5 +46,7 @@ void pall_opcode(stack_t **stack);
 void push(stack_t **stack, int value);
 FILE *open_file(char **arg);
 void free_stack(stack_t *stack);
+int instructions(unsigned int line_number, char *arg, char *opcode);
+void pint_opcode(unsigned int line_number);
 
 #endif
