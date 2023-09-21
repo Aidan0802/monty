@@ -10,17 +10,12 @@ int main(int argc, char *argv[])
 	FILE *file;
 	instruction_t options[] = {
 		{"push", push_opcode}, {"pall", pall_opcode}};
-	unsigned int line_number = 0, i;
+	unsigned int line_number = 0, i, found = 0;
 	char line[MAX_LINE], *opcode, *arg;
 
 	if (argc != 2)
 	{
-		fprintf(stderr, "Usage: %s <monty_script>\n", argv[0]);
-		exit(EXIT_FAILURE);
-	}
-	if (argv[1] == NULL)
-	{
-		fprintf(stderr, "Usage: %s <monty_script>\n", argv[0]);
+		fprintf(stderr, "Usage: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	file = open_file(argv);
@@ -36,9 +31,18 @@ int main(int argc, char *argv[])
 			if (strcmp(opcode, options[i].opcode) == 0)
 			{
 				options[i].f(&stack, line_number, arg);
+				found = 1;
 				break;
 			}
 		}
+		if (!found)
+		{
+			if (stack)
+				free_stack(stack);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+			exit(EXIT_FAILURE);
+		}
+		found = 0;
 	}
 	fclose(file), free_stack(stack);
 	return (0);

@@ -13,7 +13,7 @@ FILE *open_file(char **arg)
 	file = fopen(arg[1], "r");
 	if (file == NULL)
 	{
-		fprintf(stderr, "Error: Could not open file '%s'\n", arg[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", arg[1]);
 		exit(EXIT_FAILURE);
 	}
 
