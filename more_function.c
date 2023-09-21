@@ -53,6 +53,7 @@ void swap_opcode(unsigned int line_n)
 void add_opcode(unsigned int line_n)
 {
 	int sum = 0;
+	stack_t *temp;
 
 	if (!stack || !stack->next)
 	{
@@ -61,7 +62,8 @@ void add_opcode(unsigned int line_n)
 	}
 
 	sum = stack->n + stack->next->n;
+	temp = stack->next;
 	free(stack);
-	stack = stack->next;
+	stack = temp;
 	stack->n = sum;
 }
