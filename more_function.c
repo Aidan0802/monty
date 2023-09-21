@@ -43,3 +43,27 @@ void swap_opcode(unsigned int line_n)
 	stack->n = stack->next->n;
 	stack->next->n = temp;
 }
+
+/**
+ * add_opcode - Adds two top elements
+ * @line_n: Line number
+ * Return: void
+ */
+
+void add_opcode(unsigned int line_n)
+{
+	int count = 0, sum = 0;
+
+	if (!stack || !stack->next)
+	{
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_n);
+		exit(EXIT_FAILURE);
+	}
+	while (count < 2)
+	{
+		sum += stack->n;
+		stack = stack->next;
+		count++;
+	}
+	printf("%d\n", sum);
+}
