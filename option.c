@@ -41,4 +41,5 @@ int instructions(unsigned int line_number, char *arg, char *opcode)
 
 void nop_opcode(void)
 {
+	exit(0);
 }
